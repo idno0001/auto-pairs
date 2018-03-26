@@ -119,6 +119,11 @@ function! AutoPairsInsert(key)
   if prev_char == '\'
     return a:key
   end
+  
+  " Ignore auto close if prev character is #
+  if prev_char == '#'
+    return a:key
+  end
 
   " The key is difference open-pair, then it means only for ) ] } by default
   if !has_key(b:AutoPairs, a:key)
